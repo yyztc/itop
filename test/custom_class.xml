@@ -1,0 +1,213 @@
+
+    <class id="VMwareLicense" _delta="define">
+      <parent>SoftwareLicence</parent>
+      <properties>
+        <category>bizmodel,searchable</category>
+        <abstract>false</abstract>
+        <key_type>autoincrement</key_type>
+        <db_table>vmwarelicense</db_table>
+        <db_key_field>id</db_key_field>
+        <db_final_class_field/>
+        <naming>
+          <format>%1$s</format>
+          <attributes>
+            <attribute id="name"/>
+          </attributes>
+        </naming>
+        <display_template/>
+        <icon>images/VMwareLicense.png</icon>
+        <reconciliation>
+          <attributes>
+            <attribute id="name"/>
+            <attribute id="org_id"/>
+            <attribute id="organization_name"/>
+            <attribute id="licence_key"/>            
+          </attributes>
+        </reconciliation>
+      </properties>
+      <fields>
+        <field id="environment" xsi:type="AttributeString" _delta="define">
+          <sql>environment</sql>
+          <default_value/>
+          <is_null_allowed>true</is_null_allowed>
+        </field>
+        <field id="used" xsi:type="AttributeString" _delta="define">
+          <sql>used</sql>
+          <default_value/>
+          <is_null_allowed>true</is_null_allowed>
+        </field>
+      </fields>
+      <methods></methods> 
+      <presentation>
+        <details>
+          <items>
+            <item id="name">
+              <rank>10</rank>
+            </item>
+            <item id="environment">
+              <rank>11</rank>
+            </item>
+            <item id="documents_list">
+              <rank>20</rank>
+            </item>
+            <item id="software_id">
+              <rank>30</rank>
+            </item>
+            <item id="org_id">
+              <rank>40</rank>
+            </item>
+            <item id="usage_limit">
+              <rank>50</rank>
+            </item>
+            <item id="used">
+              <rank>51</rank>
+            </item>
+            <item id="description">
+              <rank>60</rank>
+            </item>
+            <item id="perpetual">
+              <rank>65</rank>
+            </item>
+            <item id="start_date">
+              <rank>70</rank>
+            </item>
+            <item id="end_date">
+              <rank>80</rank>
+            </item>
+            <item id="licence_key">
+              <rank>90</rank>
+            </item>
+            <item id="softwareinstance_list">
+              <rank>100</rank>
+            </item>
+          </items>
+        </details>
+        <search>
+          <items>
+            <item id="name">
+              <rank>10</rank>
+            </item>
+            <item id="environment">
+              <rank>11</rank>
+            </item>
+            <item id="perpetual">
+              <rank>15</rank>
+            </item>
+            <item id="start_date">
+              <rank>20</rank>
+            </item>
+            <item id="end_date">
+              <rank>30</rank>
+            </item>
+            <item id="licence_key">
+              <rank>40</rank>
+            </item>
+            <item id="usage_limit">
+              <rank>50</rank>
+            </item>
+            <item id="used">
+              <rank>51</rank>
+            </item>
+          </items>
+        </search>
+        <list>
+          <items>
+            <item id="software_id">
+              <rank>10</rank>
+            </item>
+            <item id="environment">
+              <rank>11</rank>
+            </item>
+            <item id="org_id">
+              <rank>20</rank>
+            </item>
+            <item id="usage_limit">
+              <rank>30</rank>
+            </item>
+            <item id="used">
+              <rank>31</rank>
+            </item>
+            <item id="description">
+              <rank>40</rank>
+            </item>
+            <item id="start_date">
+              <rank>50</rank>
+            </item>
+            <item id="end_date">
+              <rank>60</rank>
+            </item>
+            <item id="licence_key">
+              <rank>70</rank>
+            </item>
+          </items>
+        </list>
+      </presentation>
+     </class>
+
+'Class:VMwareLicense/Attribute:environment' => 'Environment',
+'Class:VMwareLicense/Attribute:used' => 'Used'
+
+
+
+<menus> <menu id="ConfigManagementOverview" xsi:type="DashboardMenuNode" _delta="must_exist"> <definition> <cells> <cell id="2" _delta="must_exist"> <dashlets> <dashlet id="99" xsi:type="DashletBadge" _delta="define"> <rank>8</rank> <class>Monitor</class> </dashlet> </dashlets> </cell> </cells> </definition> </menu></menus>
+
+
+
+  <menus>
+  <menu id="ConfigManagementOverview" xsi:type="DashboardMenuNode" _delta="must_exist">
+  <definition>
+    <cells>
+      <cell id="4" _delta="must_exist">
+        <dashlets>
+          <dashlet id="21" xsi:type="DashletBadge" _delta="define">
+            <rank>7</rank>
+            <class>VMwareLicense</class>
+         </dashlet>
+       </dashlets>
+     </cell>
+   </cells>
+  </definition>
+  </menu>
+  </menus>
+
+
+
+
+
+
+'Class:PhysicalServer/Attribute:location_id' => 'Site',
+'Class:PhysicalServer/Attribute:rack_location' => 'Location',
+'Class:PhysicalServer/Attribute:env_purpose' => 'Purpose of Environment',
+'Class:PhysicalServer/Attribute:environment' => 'Type of Environment',
+'Class:PhysicalServer/Attribute:name' => 'Server Name',
+'Class:PhysicalServer/Attribute:server_type' => 'ESX/Non-ESX',
+'Class:PhysicalServer/Attribute:power_status' => 'Power ON/ Power OFF',
+'Class:PhysicalServer/Attribute:osversion_name' => 'Operation System',
+'Class:PhysicalServer/Attribute:os_service_pack' => 'OS Service Pack',
+'Class:PhysicalServer/Attribute:server_function ' => 'Server Function',
+'Class:PhysicalServer/Attribute:brand_id' => 'Manufacture Brand',
+'Class:PhysicalServer/Attribute:model_id' => 'Server Model',
+'Class:PhysicalServer/Attribute:cpu_type' => 'CPU Type',
+'Class:PhysicalServer/Attribute:cpu_speed' => 'CPU Speed',
+'Class:PhysicalServer/Attribute:cpu_num' => '# of CPU',
+'Class:PhysicalServer/Attribute:cpu_core' => '# of Core',
+'Class:PhysicalServer/Attribute:cpu_cache_size' => 'CPU Cache Size',
+'Class:PhysicalServer/Attribute:memory' => 'Memory',
+'Class:PhysicalServer/Attribute:system_disk' => 'System Disk',
+'Class:PhysicalServer/Attribute:external_disk' => 'External Disk',
+'Class:PhysicalServer/Attribute:ip' => 'IP Address',
+'Class:PhysicalServer/Attribute:power_port' => 'Power Port',
+'Class:PhysicalServer/Attribute:lan_port' => 'LAN Port',
+'Class:PhysicalServer/Attribute:fiber_port' => 'Fiber Port',
+'Class:PhysicalServer/Attribute:fiber_card_model' => 'Fiber Card Model',
+'Class:PhysicalServer/Attribute:fiber_card_num' => 'Total of fiber card',
+'Class:PhysicalServer/Attribute:fiber_card2_model' => 'Fiber Card2 Model',
+'Class:PhysicalServer/Attribute:fiber_card3_model' => 'Fiber Card3 Model',
+'Class:PhysicalServer/Attribute:serialnumber' => 'Serial #',
+'Class:PhysicalServer/Attribute:maint_status' => 'Maint. Status',
+'Class:PhysicalServer/Attribute:maint_service_from' => 'Maint. Service FROM',
+'Class:PhysicalServer/Attribute:maint_service_to' => 'Maint. Service TO',
+'Class:PhysicalServer/Attribute:maint_vendor' => 'Maint Vendor',
+'Class:PhysicalServer/Attribute:hw_model_eol_date' => 'HW Model EOL date',
+'Class:PhysicalServer/Attribute:last_on-site_check_date' => 'Last On-site Check Date',
+'Class:PhysicalServer/Attribute:last_on-site_check_by' => 'Last On-site Check By'
