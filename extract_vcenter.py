@@ -140,8 +140,8 @@ class ExtractVcenter():
             datastore_list.append(ds)
         return datastore_list
 
-    def get_license_list(self):
-        content = self.connect.RetrieveContent()
+    def get_license_list(self,connect):
+        content = connect.RetrieveContent()
         
         license_list = []
         for it in content.licenseManager.licenses:
@@ -184,7 +184,7 @@ class ExtractVcenter():
             ds_json_list = self.get_ds_list(dc)
             self.load_jsonlist_to_mongodb(coll_name='vcenter_logicalvolume', json_list=ds_json_list)
 
-            license_list = self.get_license_list()
+            license_list = self.get_license_list(connect)
             self.load_jsonlist_to_mongodb(coll_name='vcenter06_vmware_license', json_list=license_list)
 
     def main(self):
