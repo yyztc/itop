@@ -34,9 +34,9 @@ class ExtractOPS():
         return value
 
     def get_db_list(self, url, username, nonce):
-        logger.info(url)
-        logger.info(username)
-        logger.info(nonce)
+        logging.info(url)
+        logging.info(username)
+        logging.info(nonce)
         result = requests.get(url, auth=HTTPDigestAuth(username, nonce)).json()['results']
         db_list = []
         for db_obj in result:
