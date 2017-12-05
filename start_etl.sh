@@ -1,1 +1,1 @@
-cd /home/itop/scripts/itop && /usr/local/python3/bin/python3 -u extract_all.py && /usr/local/python3/bin/python3 -u trans_all.py && /usr/local/python3/bin/python3 -u load_all.py
+cd /home/itop/scripts/itop && echo > logs/etl_info.log && echo > logs/etl_error.log && /usr/local/python3/bin/python3 -u extract_all.py && /usr/local/python3/bin/python3 -u trans_all.py && /usr/local/python3/bin/python3 -u load_all.py
