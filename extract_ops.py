@@ -37,8 +37,11 @@ class ExtractOPS():
         # logging.info(url)
         # logging.info(username)
         # logging.info(nonce)
+        resp = requests.get(url, auth=HTTPDigestAuth(username, nonce))
+        logging.info(resp)
+        result = resp.json()['results']
+        logging.info(result)
         # result = requests.get(url, auth=HTTPDigestAuth(username, nonce)).json()['results']
-        result = requests.get(str(url), auth=HTTPDigestAuth(str(username), str(nonce))).json()['results']
         db_list = []
         for db_obj in result:
             db = {}
