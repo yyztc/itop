@@ -9,6 +9,7 @@ import pdb
 import time
 import logging
 import configparser
+from dump import Dump
 
 logging.basicConfig(
     level=logging.INFO,
@@ -181,6 +182,11 @@ class ExtractVcenter():
 
             # license_list = self.get_license_list(connect)
             # self.load_jsonlist_to_mongodb(coll_name='vcenter06_vmware_license', json_list=license_list)
+
+            d = Dump()
+            d.to_json('server_json_list.json',server_json_list)
+            d.to_json('vm_json_list.json',vm_json_list)
+            d.to_json('ds_json_list.json',ds_json_list)
 
     def main(self):
         vc02_section = "vc02"
