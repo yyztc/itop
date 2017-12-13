@@ -185,8 +185,9 @@ class ExtractVcenter():
 
             d = Dump()
             d.to_json('server_json_list.json',server_json_list)
-            d.to_json('vm_json_list.json',vm_json_list)
-            d.to_json('ds_json_list.json',ds_json_list)
+            print(server_json_list)
+            # d.to_json('vm_json_list.json',vm_json_list)
+            # d.to_json('ds_json_list.json',ds_json_list)
 
     def main(self):
         vc02_section = "vc02"
