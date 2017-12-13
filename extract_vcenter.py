@@ -183,19 +183,19 @@ class ExtractVcenter():
             # license_list = self.get_license_list(connect)
             # self.load_jsonlist_to_mongodb(coll_name='vcenter06_vmware_license', json_list=license_list)
 
+            logging.info(server_json_list)
             d = Dump()
             d.to_json('server_json_list.json',server_json_list)
-            print(server_json_list)
             # d.to_json('vm_json_list.json',vm_json_list)
             # d.to_json('ds_json_list.json',ds_json_list)
 
     def main(self):
-        vc02_section = "vc02"
-        vc02_host = self.cfg.get(vc02_section,"host")
-        vc02_user = self.cfg.get(vc02_section,"user")
-        vc02_passwd = self.cfg.get(vc02_section,"passwd")
-        vc02_port = self.cfg.getint(vc02_section,"port")
-        self.extract_load(in_host=vc02_host,in_user=vc02_user,in_pwd=vc02_passwd,in_port=vc02_port)
+        # vc02_section = "vc02"
+        # vc02_host = self.cfg.get(vc02_section,"host")
+        # vc02_user = self.cfg.get(vc02_section,"user")
+        # vc02_passwd = self.cfg.get(vc02_section,"passwd")
+        # vc02_port = self.cfg.getint(vc02_section,"port")
+        # self.extract_load(in_host=vc02_host,in_user=vc02_user,in_pwd=vc02_passwd,in_port=vc02_port)
 
         vc06_section = "vc06"
         vc06_host = self.cfg.get(vc06_section,"host")
@@ -204,12 +204,12 @@ class ExtractVcenter():
         vc06_port = self.cfg.getint(vc06_section,"port")
         self.extract_load(in_host=vc06_host,in_user=vc06_user,in_pwd=vc06_passwd,in_port=vc06_port)
 
-        ppvc06_section = "ppvc06"
-        ppvc06_host = self.cfg.get(ppvc06_section,"host")
-        ppvc06_user = self.cfg.get(ppvc06_section,"user")
-        ppvc06_passwd = self.cfg.get(ppvc06_section,"passwd")
-        ppvc06_port = self.cfg.getint(ppvc06_section,"port")
-        self.extract_load(in_host=ppvc06_host,in_user=ppvc06_user,in_pwd=ppvc06_passwd,in_port=ppvc06_port)
+        # ppvc06_section = "ppvc06"
+        # ppvc06_host = self.cfg.get(ppvc06_section,"host")
+        # ppvc06_user = self.cfg.get(ppvc06_section,"user")
+        # ppvc06_passwd = self.cfg.get(ppvc06_section,"passwd")
+        # ppvc06_port = self.cfg.getint(ppvc06_section,"port")
+        # self.extract_load(in_host=ppvc06_host,in_user=ppvc06_user,in_pwd=ppvc06_passwd,in_port=ppvc06_port)
 
 
 if __name__ == '__main__':
