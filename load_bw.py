@@ -13,8 +13,13 @@ logger=logging.getLogger('infoLogger')
 class LoadBW():
 
     def __init__(self):
-        self.client = MongoClient('mongodb://dba:dba@127.0.0.1:27017')
-        self.db = self.client['cmdb']
+        self.cfg = configparser.ConfigParser()
+        self.cfg.read("config.ini")        
+        cmdb_db = self.cfg.get("cmdb","db")
+        cmdb_str = self.cfg.get("cmdb","conn_str")
+        self.client = MongoClient(cmdb_str)
+        self.db = self.client[cmdb_db]
+        
         self.engine = create_engine(
             "mysql+pymysql://root:Password1@127.0.0.1:3306/itop?charset=utf8", encoding="utf-8", echo=False)
 

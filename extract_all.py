@@ -16,12 +16,8 @@ class ExtractAll():
     def __init__(self):
         self.cfg = configparser.ConfigParser()
         self.cfg.read("config.ini")        
-        cmdb_host = self.cfg.get("cmdb","host")
-        cmdb_port = self.cfg.get("cmdb","port")
-        cmdb_user = self.cfg.get("cmdb","user")
-        cmdb_passwd = self.cfg.get("cmdb","passwd")
         cmdb_db = self.cfg.get("cmdb","db")
-        cmdb_str = "mongodb://%s:%s@%s:%s" % (cmdb_user,cmdb_passwd,cmdb_host,cmdb_port)
+        cmdb_str = self.cfg.get("cmdb","conn_str")
         self.client = MongoClient(cmdb_str)
         self.db = self.client[cmdb_db]
 

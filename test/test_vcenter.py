@@ -23,4 +23,8 @@ dc = content.rootFolder.childEntity[0]
 
 cluster = dc.hostFolder.childEntity[0]
 
-host = cluster.host[0]
+for host in cluster.host:
+    for vm in host.vm:
+        if vm.name=='coselk01':
+            pprint('name: '+ vm.name)
+            pprint('annotation: '+vm.summary.config.annotation)

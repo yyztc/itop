@@ -13,8 +13,12 @@ logger=logging.getLogger('infoLogger')
 class TransSolr():
 
     def __init__(self):
-        self.client = MongoClient('mongodb://dba:dba@127.0.0.1:27017')
-        self.db = self.client['cmdb']
+        self.cfg = configparser.ConfigParser()
+        self.cfg.read("config.ini")        
+        cmdb_db = self.cfg.get("cmdb","db")
+        cmdb_str = self.cfg.get("cmdb","conn_str")
+        self.client = MongoClient(cmdb_str)
+        self.db = self.client[cmdb_db]
 
     def write_to_cmdb(self,coll_name, df):
         coll = self.db[coll_name]
