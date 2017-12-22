@@ -101,6 +101,7 @@ class ExtractVcenter():
         vm['vc_vm_os_version'] = vcenter_obj.summary.config.guestFullName
         vm['vc_env'] = self.env
         vm['vc_sync_time'] = self.sync_time
+        vm['annotation'] = vcenter_obj.summary.config.annotation if vcenter_obj.summary.config.annotation else ''
         return vm
 
     def get_vm_list(self, dc):
