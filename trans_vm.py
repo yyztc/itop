@@ -62,6 +62,7 @@ class TransVM():
         vm_df['merge_physical_server'] = vc_vm_df['vc_server_name'].map(lambda x:x.lower().split('.cargosmart.com')[0])
         vm_df['merge_lun_name'] = vc_vm_df['vc_vm_path'].map(lambda x:re.search(r'\[(?P<lun_name>.*)\]\s+(?P<vmx_path>.*)',x).      groupdict().get('lun_name'))
         vm_df['merge_vmx_path'] = vc_vm_df['vc_vm_path'].map(lambda x:re.search(r'\[(?P<lun_name>.*)\]\s+(?P<vmx_path>.*)',x).      groupdict().get('vmx_path'))
+        vm_df['merge_annotation'] = vc_vm_df['vc_annotation']
         
         self.write_to_cmdb(coll_name='merge_virtualmachine',df=vm_df)
         self.client.close()
