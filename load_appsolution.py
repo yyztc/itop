@@ -54,11 +54,24 @@ class LoadAppsolution():
         # logger.info(appsolution_src_df.head(20))
         return appsolution_src_df
 
+    def get_appsolution_src_df2(self):
+        vm_coll = self.db['merge_virtualmachine']
+        vm_df = pd.DataFrame(list(vm_coll.find()))
+        appsolution_src_df = vm_df[['merge_env','merge_app']]
+        appsolution_src_df=appsolution_src_df.rename(columns={"merge_env":"environment","merge_app":"name"}).assign(org_id=lambda x:1).assign(primary_key=lambda x:x['name'])
+        appsolution_src_df2=appsolution_src_df[appsolution_src_df.name!='']
+        return appsolution_src_df2
+
 
     def main(self):
         appsolution_src_df = self.get_appsolution_src_df()
         self.load_to_itopdb(
             df=appsolution_src_df, source_table_name='synchro_data_applicationsolution_101')
+        self.apply_by_php(source_table_name='synchro_data_applicationsolution_101')
+
+        appsolution_src_df2 = self.get_appsolution_src_df2()
+        self.load_to_itopdb(
+            df=appsolution_src_df2, source_table_name='synchro_data_applicationsolution_101')
         self.apply_by_php(source_table_name='synchro_data_applicationsolution_101')
 
 if __name__ == '__main__':
