@@ -65,8 +65,8 @@ class TransVM():
         vm_df['merge_annotation'] = vc_vm_df['vc_annotation']
         vm_df['merge_env'] = vc_vm_df['vc_env']
         vm_df['merge_sync_time'] = vc_vm_df['vc_sync_time']
-        vm_df['merge_prod_family'] = vm_df['merge_annotation'].map(lambda x:x.split(',')[0] if x!='' else '')
-        vm_df['merge_app'] = vm_df['merge_annotation'].map(lambda x:x.split(',')[1] if x!='' else '')
+        vm_df['merge_prod_family'] = vm_df['merge_annotation'].map(lambda x:x.split(',')[0] if x!='' and "\n" not in x else '')
+        vm_df['merge_app'] = vm_df['merge_annotation'].map(lambda x:x.split(',')[1] if x!='' and "\n" not in x else '')
         
         self.write_to_cmdb(coll_name='merge_virtualmachine',df=vm_df)
         self.client.close()
