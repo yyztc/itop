@@ -109,13 +109,13 @@ class ExtractVcenter():
         for v in dc.vmFolder.childEntity:
             if hasattr(v, 'childEntity'):
                 for vv in v.childEntity:
-                    if vv.summary.runtime.powerState == 'poweredOff':
-                        continue
+                    # if vv.summary.runtime.powerState == 'poweredOff':
+                    #     continue
                     vm = self.get_vm(dc, vv)
                     vm_list.append(vm)
             else:
-                if v.summary.runtime.powerState == 'poweredOff':
-                    continue
+                # if v.summary.runtime.powerState == 'poweredOff':
+                #     continue
                 vm = self.get_vm(dc, v)
                 vm_list.append(vm)
         return vm_list
