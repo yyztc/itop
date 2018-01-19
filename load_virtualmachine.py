@@ -75,7 +75,7 @@ class LoadVM():
 
         vm_src_df = join4[cols].rename(columns=col_dict).rename(columns={'cpu_num': 'cpu','mem_size': 'ram','power_status': 'powerState'}).assign(primary_key=lambda x:x['name'])[['org_id','virtualhost_id','osfamily_id','osversion_id','primary_key','name','cpu','ram','environment','powerState','ip']]
 
-        vm_src_df = vm_src_df[vm_src_df['powerState'] == 'POWEREDON']
+        # vm_src_df = vm_src_df[vm_src_df['powerState'] == 'POWEREDON']
 
         # logger.info(vm_src_df.head(5))
         return vm_src_df
